@@ -3,6 +3,7 @@ package com.rakesh.dao;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,6 +11,7 @@ import com.rakesh.model.Student;
 @Repository
 public class StudentDAOImpl implements StudentDAO {
 	
+	@Autowired
 	private SessionFactory sf;
 
 	@Override
@@ -19,6 +21,8 @@ public class StudentDAOImpl implements StudentDAO {
 			sf.getCurrentSession().save(s);
 			return true;
 		} catch (Exception e) {
+			
+			System.out.print(e.getMessage());
 			return false;
 		}
 	}

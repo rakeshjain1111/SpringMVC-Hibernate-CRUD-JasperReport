@@ -1,13 +1,17 @@
 package com.rakesh.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 
 @Entity
-@Table
+@Table(name="Student")
 public class Student {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
    private int id;
 	@Column
    private String name;

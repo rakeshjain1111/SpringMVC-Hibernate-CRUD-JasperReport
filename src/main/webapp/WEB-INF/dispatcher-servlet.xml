@@ -25,8 +25,8 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-	<!-- <bean id="mydataSource"
-		class="org.springframework.jdbc.dataSource.DriverManagerDataSource">
+	<bean id="myDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<!-- class="org.springframework.jdbc.dataSource.DriverManagerDataSource"> -->
 		<property name="driverClassName"
 			value="com.mysql.jdbc.Driver" />
 		<property name="url"
@@ -35,7 +35,7 @@
 		<property name="password" value="root" />
 	</bean>
 
-	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+	<!-- <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<property name="dataSource" ref="mydataSource" />
 		<property name="packagesToScan" value="com.rakesh.modal.Student"/>
 		<property name="hibernateProperties">
@@ -46,10 +46,23 @@
 			</props>
 		</property>
 	</bean>
-
+ -->
+ 
+ <bean id="sessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="myDataSource" />
+		<property name="packagesToScan" value="com.rakesh.*" />
+		<property name="hibernateProperties">
+		   <props>
+		      <prop key="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</prop>
+		      <prop key="hibernate.showsql">true</prop>
+			   <prop key="hibernate.hbm2ddl.auto">create</prop>
+		   </props>
+		</property>
+   </bean>	
 	<bean id="transactionManager"
-		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
-	 <tx:annotation-driven transaction-manager="transactionManager" /> -->
+	 <tx:annotation-driven transaction-manager="transactionManager" />
 </beans>

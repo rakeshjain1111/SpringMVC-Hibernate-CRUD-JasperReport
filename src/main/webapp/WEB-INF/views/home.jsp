@@ -9,10 +9,13 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>${contextRoot}-${title}</title>
+<link href="/resources/css/bootstrap.min.css"/>
+<link href="/resources/jquery.js"/>
 </head>
 <body>
   <c:if test="${clickOnuserlogin==true}">
      <%@include file='./include/addStudent.jsp' %>
   </c:if>
+   <script type="text/javascript" src="/resources/js/bootstrap.bundle.js"/>
 </body>
 </html>
