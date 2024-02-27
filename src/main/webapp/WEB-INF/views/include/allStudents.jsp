@@ -1,4 +1,4 @@
-<%-- 
+
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
@@ -13,14 +13,14 @@
 		<td>Email</td>
 		<td>Action</td>
 	</tr>
-	<c:forEach var="s" items="$[listStudent]">
+	<c:forEach var="s" items="${slist}">
 		<tr>
-			<td>${id}</td>
-			<td>${name}</td>
-			<td>${address}</td>
-			<td>${contact}</td>
-			<td>${email}</td>
+			<td>${s.id}</td>
+			<td>${s.name}</td>
+			<td>${s.address}</td>
+			<td>${s.contact}</td>
+			<td>${s.email}</td>
 			<td></td>
 		</tr>
 	</c:forEach>
-</Table> --%>
+</Table> 

@@ -61,7 +61,16 @@ public class StudentDAOImpl implements StudentDAO {
 	@Override
 	@Transactional
 	public List<Student> getAllStudent() {
-		return sf.getCurrentSession().createQuery("From Student").getResultList();
+			try {
+				
+				List<Student> li=sf.getCurrentSession().createQuery("From Student").list();
+				System.out.println(li);
+				return li;
+				
+			}catch(Exception e) {
+				System.out.print(e.getMessage());
+				return null;
+			}
 	}
 
 	@Override

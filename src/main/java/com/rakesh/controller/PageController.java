@@ -42,4 +42,12 @@ public class PageController {
     	return "redirect:/";
     }
 	
+	@RequestMapping(value="/slist")
+	public ModelAndView slist() {
+		ModelAndView mv= new ModelAndView("home");
+		mv.addObject("userClickOnallStudent",true);
+		mv.addObject("slist",sService.getAllStudent());
+		return mv;
+	}
+	
 }

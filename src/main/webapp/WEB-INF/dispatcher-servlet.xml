@@ -56,7 +56,7 @@
 		   <props>
 		      <prop key="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</prop>
 		      <prop key="hibernate.showsql">true</prop>
-			   <prop key="hibernate.hbm2ddl.auto">create</prop>
+			   <prop key="hibernate.hbm2ddl.auto">update</prop>
 		   </props>
 		</property>
    </bean>	
