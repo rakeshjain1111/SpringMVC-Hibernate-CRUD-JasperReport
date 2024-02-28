@@ -4,14 +4,14 @@
 <%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
 
 <h3>All Students</h3>
-<Table>
+<Table  class="table-primary border">
 	<tr>
-		<td>Id</td>
-		<td>Name</td>
-		<td>Address</td>
-		<td>Contact</td>
-		<td>Email</td>
-		<td>Action</td>
+		<th scope="col">Id</th>
+		<th scope="col">Name</th>
+		<th scope="col">Address</th>
+		<th scope="col">Contact</th>
+		<th scope="col">Email</th>
+		<th scope="col">Action</th>
 	</tr>
 	<c:forEach var="s" items="${slist}">
 		<tr>

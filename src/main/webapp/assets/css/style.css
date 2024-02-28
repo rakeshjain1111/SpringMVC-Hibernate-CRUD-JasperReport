@@ -1,0 +1,15 @@
+@charset "ISO-8859-1";
+*{
+	padding:0px;
+	margin: 0px;
+	box-sizing:border-box;
+}
+
+.formbox{
+ box-shadow: 10px 10px 5px 12px lightblue;
+	}
+	
+	.sidebar{
+	background: #ff00cc;
+    box-shadow: 10px 10px 5px 10px lightblue;
+	}
