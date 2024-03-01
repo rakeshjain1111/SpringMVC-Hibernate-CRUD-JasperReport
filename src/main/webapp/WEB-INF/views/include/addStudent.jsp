@@ -43,6 +43,13 @@
 		   <div class="formbox  border  border-primary  p-3 ">
 		   <h3 class="text-center">ADD STUDENT</h3>
 			<form:form action="${contextRoot}/save" modelAttribute="student">
+			   <div class="mb-3">
+					<label for="exampleInputName" class="form-label">Id</label> 
+					<label for="exampleInputName" class="form-label">${student.id}</label> 
+					<form:hidden path="id"/>
+					 
+				</div>
+			
 				<div class="mb-3">
 					<label for="exampleInputName" class="form-label">Name</label> 
 					<form:input path="name" class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="Enter Your Full Name." />

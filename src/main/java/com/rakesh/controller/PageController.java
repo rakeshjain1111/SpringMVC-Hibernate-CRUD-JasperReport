@@ -1,9 +1,15 @@
 package com.rakesh.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.rakesh.model.Student;
@@ -26,12 +32,9 @@ public class PageController {
     }
 	
 	@RequestMapping(value="/save")
-    public String add(@ModelAttribute("student") Student s,Model model) {
-		
-		
-		 boolean res=sService.add(s);
-		 
-		 System.out.print(res);
+    public String add(@ModelAttribute("student") Student s,Model model ,HttpServletRequest req) {
+
+		 System.out.print(s);
 		if(s.getId()==0) {
 			sService.add(s);
 		}
@@ -49,5 +52,26 @@ public class PageController {
 		mv.addObject("slist",sService.getAllStudent());
 		return mv;
 	}
+	
+@RequestMapping(value="/studentList/delete")
+	public String delete(HttpServletRequest req) {
+		int sid=Integer.parseInt(req.getParameter("id"));
+		boolean res=sService.delete(sid);
+		return "redirect:/slist";
+	}
+
+@RequestMapping(value="/studentList/update")
+public ModelAndView update(HttpServletRequest req) {
+	ModelAndView mv =new ModelAndView("home");
+	int sid=Integer.parseInt(req.getParameter("id"));
+	System.out.println(sid);
+	Student s= 	sService.getStudent(sid);
+	System.out.println(s);
+	mv.addObject("clickOnuserlogin",true);
+	mv.addObject("student",s);
+	mv.addObject("title","Home");
+	return mv;
+}
+	
 	
 }

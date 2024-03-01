@@ -64,7 +64,7 @@ public class StudentDAOImpl implements StudentDAO {
 			try {
 				
 				List<Student> li=sf.getCurrentSession().createQuery("From Student").list();
-				System.out.println(li);
+//				System.out.println(li);
 				return li;
 				
 			}catch(Exception e) {
