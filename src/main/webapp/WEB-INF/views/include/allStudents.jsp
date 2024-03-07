@@ -25,7 +25,6 @@
 	</c:forEach>
 </Table>  --%>
 
-
         <table id="exampleTable" class="table table-striped table-bordered" style="">
             <thead id="thead">
             <tr style="background-color: #1573ff">

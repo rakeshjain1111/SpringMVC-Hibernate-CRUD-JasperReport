@@ -36,7 +36,7 @@ public class PageController {
 
 		 System.out.print(s);
 		if(s.getId()==0) {
-			sService.add(s);
+			boolean res =sService.add(s);
 		}
 		else {
 			sService.update(s);
@@ -50,6 +50,7 @@ public class PageController {
 		ModelAndView mv= new ModelAndView("home");
 		mv.addObject("userClickOnallStudent",true);
 		mv.addObject("slist",sService.getAllStudent());
+		System.out.println(sService.getAllStudent());
 		return mv;
 	}
 	
