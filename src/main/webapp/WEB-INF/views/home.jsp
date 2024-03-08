@@ -39,8 +39,8 @@
                             padding: 15px;">
                          <a href="${contextRoot }/slist" class="btn btn-primary d-block mb-2 mt-2"><i class="fa-solid fa-users"></i> All Students</a>
     	    			 <a href="${contextRoot }/"  class="btn btn-primary d-block mb-2"><i class="fa-solid fa-user-plus"></i> Add Student </a>
-   	    			 <a href="${contextRoot }/report"  class="btn btn-primary d-block mb-2"><i class="fa-solid fa-user-plus"></i> All Student PDF </a>
-    	    			 
+        	    			 <a href="${contextRoot }/allstureport"  class="btn btn-primary d-block mb-2"><i class="fa-solid fa-user-plus"></i> All Student PDF </a> 
+<%--    	    			 <a href="${contextRoot }/report"  class="btn btn-primary d-block mb-2"><i class="fa-solid fa-user-plus"></i> All Student PDF </a>      --%>    	    			 
                     </div>
                 </div>
             </div>
@@ -57,6 +57,10 @@
 		 				 </c:if>
 						  <c:if test="${userClickOnallStudent==true}">
 		     						<%@include file='./include/allStudents.jsp' %>
+		 					 </c:if>
+		 					 
+		 					   <c:if test="${userClickOnallStuReoprt==true}">
+		     						<%@include file='./include/allstudentReport.jsp' %>
 		 					 </c:if>
                     </div>
                 </div>

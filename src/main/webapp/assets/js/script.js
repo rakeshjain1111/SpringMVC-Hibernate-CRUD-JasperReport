@@ -18,8 +18,10 @@ window.onload =()=>{
                         <td>${student.contact}</td>
                         <td>${student.email}</td>
                         <td><a href="/SpringMVC-CRUD/studentList/update?id=${student.id}" class="text-white btn-primary btn"><i class="fa-solid fa-pen "></i></a>
-                        		 <a href="/SpringMVC-CRUD/studentList/delete?id=${student.id}"  class="text-white btn-danger btn"><i class="fa-solid fa-trash"></i></a>
+                        		<a href="/SpringMVC-CRUD/studentList/delete?id=${student.id}"  class="text-white btn-danger btn"><i class="fa-solid fa-trash"></i></a>
+                        		<a href="/SpringMVC-CRUD/singlereport/${student.id}"  class="text-white btn-success btn" target="_"><i class="fa-solid fa-file-pdf"></i></a>
                         </td>
+                        
                         </tr>
                 `
             table.innerHTML+=tab;    
@@ -32,8 +34,10 @@ window.onload =()=>{
                            {"data":"address"},
                            {"data":"contact"},
                            {"data":"email"},
-                           {"data":"Action"}
+                           {"data":"Action"},
+                             {"data":"Pdf"}
                     ]
+                    
                 
                 })
     })

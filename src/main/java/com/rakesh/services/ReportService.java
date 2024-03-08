@@ -4,6 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,14 +38,18 @@ public class ReportService {
 
 	@Autowired
 	private StudentDAO sdao;
-
+	//private JasperReport report;
 	
 	public void expertReport(HttpServletResponse response) throws JRException, IOException {
+		
+		
 		
 		String path="C:\\Users\\hp\\Desktop\\Report";
 		List<Student> students= sdao.getAllStudent();
 		File file=ResourceUtils.getFile("classpath:allstudents.jrxml");
 		JasperReport jasperReport=JasperCompileManager.compileReport(file.getAbsolutePath());
+		
+	//	JasperReport jasperReport =getReport();
 		JRBeanCollectionDataSource dataSource =new JRBeanCollectionDataSource(students);
 		
 		Map<String,Object> parameters = new HashMap<>();
@@ -85,8 +90,8 @@ public class ReportService {
 		String path="C:\\Users\\hp\\Desktop\\Report";
 		
 		Student student=sdao.getStudent(id);
-		
-		File file=ResourceUtils.getFile("classpath:studentReport.jrxml");
+		System.out.println(student);
+		File file=ResourceUtils.getFile("classpath:studentDetails.jrxml");
 		JasperReport jasperReport=JasperCompileManager.compileReport(file.getAbsolutePath());
 		
 		ArrayList<Map<String,Object>> list =new ArrayList<>();
@@ -123,6 +128,13 @@ public class ReportService {
 			
           
 		}
+	
+//		/*
+//		 * public JasperReport getReport() throws JRException { if (report == null)
+//		 * {//compile only once lazily InputStream stream =
+//		 * getClass().getResourceAsStream("/allstudents.jrxml"); report =
+//		 * JasperCompileManager.compileReport(stream); } return report; }
+//		 */
 	
 	}
 	
