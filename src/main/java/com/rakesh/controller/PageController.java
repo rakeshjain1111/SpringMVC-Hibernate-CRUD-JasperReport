@@ -27,6 +27,7 @@ public class PageController {
 	public ModelAndView home() {
 		ModelAndView mv = new ModelAndView("home");
 		mv.addObject("clickOnuserlogin", true);
+		mv.addObject("headingtitle","ADD STUDENT");
 		mv.addObject("student", new Student());
 		mv.addObject("title", "Home");
 		return mv;
@@ -69,19 +70,27 @@ public class PageController {
 		Student s = sService.getStudent(sid);
 		System.out.println(s);
 		mv.addObject("clickOnuserlogin", true);
+		mv.addObject("headingtitle","UPDATE RECORD");
 		mv.addObject("student", s);
 		mv.addObject("title", "Home");
 		return mv;
 	}
 	
-	
-
-
 	@RequestMapping(value = "/allstureport")
 	public ModelAndView allStudentReport() {
 		ModelAndView mv = new ModelAndView("home");
 		mv.addObject("userClickOnallStuReoprt", true);
 		return mv;
+	}
+	
+	@RequestMapping(value="/studentList/pdf")
+	public ModelAndView pdf(HttpServletRequest req) {
+		ModelAndView mv =new ModelAndView("home");
+		mv.addObject("userClickOnSinglePdf",true);
+		int sid = Integer.parseInt(req.getParameter("id"));
+		Student s = sService.getStudent(sid);
+		mv.addObject("stu",s);
+		return mv;	
 	}
 
 }

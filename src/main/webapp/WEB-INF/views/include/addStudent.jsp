@@ -5,6 +5,8 @@
 <%-- <form:form action="${contextRoot}/save" modelAttribute="student">
 
 	<h3>Student Registration</h3>
+	
+
 	<table>
 
 		${student.id}
@@ -41,7 +43,7 @@
 
 		
 		   <div class="formbox  border  border-primary  p-3 ">
-		   <h3 class="text-center">ADD STUDENT</h3>
+		   <h3 class="text-center">${headingtitle}</h3>
 			<form:form action="${contextRoot}/save" modelAttribute="student">
 			   <div class="mb-3">
 					<label for="exampleInputName" class="form-label">Id</label> 

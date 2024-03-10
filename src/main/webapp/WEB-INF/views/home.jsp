@@ -62,6 +62,11 @@
 		 					   <c:if test="${userClickOnallStuReoprt==true}">
 		     						<%@include file='./include/allstudentReport.jsp' %>
 		 					 </c:if>
+		 					 
+		 					 <c:if test="${userClickOnSinglePdf==true}">
+		 					 
+		     						<%@include file='./include/studentDetails.jsp' %>
+		 					 </c:if>
                     </div>
                 </div>
                 <div class="row">
